@@ -1,18 +1,12 @@
 # TPE-web2
 Trabajo Practico Especial de Web2
 
-HTML/php:
--Login/Singin
---Main
--Treino
--Modo admin
+Integrantes:
+Dacenzo, Marco.
+Santillan, Patricio.   
 
-CSS(posible aplicaciones):
+Tematica:
+Pagina de un gimnasio. 
 
--basico pero util, que no distraiga al usuario de su rutina.
-
-JS:
--Lo justo y necesario, aplicar en caso de algo especifico
-
-MySQL:
---------------
+Descripcion:
+Este proyecto simula una aplicacion de escritorio/web en la cual un usuario que concurra al gimnasio pueda llevar su rutina(Creada por el o el profesor/entrenador del lugar) con todo su progreso detallado dia a dia.

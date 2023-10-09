@@ -1,0 +1,24 @@
+<?php require 'templates/header.phtml' ?>
+
+<div class="mt-5 w-25 mc-auto">
+    <form>
+        <div class=form_div>
+            <label for ="email">Email</label>
+            <input type="email" required class="form_control" id="email" name="email" aria-describedby="emailHelp">
+        </div>
+        <div class="form_div">
+            <label for="password">Password</label>
+            <input type="password" required class="form_control" id="password" name="password"> 
+        </div>
+
+        <?php if($error):?>
+            <div class="alert alert-danger" role='alert'>
+                <?= $error ?>
+            </div>
+        <?php endif ?>
+
+        <button type="sumbit" class="btn btn-primary mt-3">Entrar</button>
+    </form>
+</div>
+
+<?php require 'templates/footer.phtml' ?>

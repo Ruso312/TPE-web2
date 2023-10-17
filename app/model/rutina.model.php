@@ -8,6 +8,12 @@ class RutinasModel{
     }
 
     function obtenerRutinas($id){
+        if($id == 1){
+            $query = $this->bd->prepare('SELECT * FROM rutina');
+            $query->execute();
+            $rutinas = $query->fetchAll(PDO::FETCH_OBJ);
+            return $rutinas;
+        }
         $query = $this->bd->prepare('SELECT * FROM rutina WHERE cliente_id = ?');
         $query->execute([$id]);
 

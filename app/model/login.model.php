@@ -10,7 +10,6 @@ class LoginModel{
     public function checkEmail($email){
         $query = $this->db->prepare('SELECT * FROM cliente WHERE email = ?');
         $query->execute([$email]);
-
         return $query->fetch(PDO::FETCH_OBJ);
     }
 }

@@ -1,0 +1,53 @@
+<form action="cargar" method="POST" class="my-5">
+    <div class="column">
+        <div class="col-5">
+            <div class="form-group">
+                <label>Tren: </label>
+                <input required name="tren" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-5">
+            <div class="form-group">
+                <label>Musculo: </label>
+                <input required name="musculo" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-5">
+            <label>Ejercicio: </label>
+            <input required name="ejercicio" type="text" class="form-control">
+        </div>
+
+        
+        <div class="col-3">
+            <div class="form-group">
+                <label>Repeticiones: </label>
+                <select required name="repeticiones" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label>Series: </label>
+                <select required name="series" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+        </div>
+        
+    </div>
+    <button type="submit" onsubmit="return false" class="btn btn-primary mt-2">Agregar rutina</button>
+</form>

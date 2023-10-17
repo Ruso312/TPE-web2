@@ -1,40 +1,52 @@
 <?php
 
-require_once './app/controllers/auth.controller.php';
-require_once './app/controllers/main.controller.php';
-require_once './app/controllers/personal.controller.php';
+require_once './app/controller/main.controller.php';
+require_once './app/controller/rutina.controller.php';
+require_once './app/controller/login.controller.php';
 
 define('BASE_URL','//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'listar';
+$action = 'main';
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
 }
 
 $params = explode('/', $action);
 
+
 switch ($params[0]){
     case 'main':
+        LoginHelper::verify();
         $controller = new MainController();
-        $controller->showMain();
+        $controller->verMain();
         break;
-    case 'personal':
-        $controller = new PersonalController();
-        $controller->showPersonal();
+    case 'rutinas':
+        LoginHelper::verify();
+        $controller = new RutinasController();
+        $controller->mostrarRutinas();
         break;
+    case 'cargar':
+        LoginHelper::verify();
+        $controller = new RutinasController();
+        $controller->cargarRutina();
+        break;
+    case 'eliminar':
+        LoginHelper::verify();
+        $controller = new RutinasController();
+        $controller->eliminarRutina($params[1]);
     case 'login':
-        $controller = new AuthController();
-        $controller->showLogin();
+        $controller = new LoginController();
+        $controller->mostrarLogin();
         break;
-    case 'auth':
-        $controller = new AuthController();
-        $controller->auth();
+    case 'verificar':
+        $controller = new LoginController();
+        $controller->verificar();
         break;
-    case 'logout':
-        $controller = new AuthController();
-        $controller->logout();
+    case 'desloguear':
+        $controller = new LoginController();
+        $controller->desloguear();
         break;
     default:
-    echo "404 Page Not Found";
-    break;
+        echo"404 Page Not Found";
+        break;
 }

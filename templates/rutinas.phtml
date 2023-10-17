@@ -1,0 +1,20 @@
+<?php require './templates/header.phtml'?>
+<?php require './templates/form.phtml'?>
+
+<ul class="list-group">
+
+    <?php foreach($rutinas as $rutina): ?>
+        <li class="list-group-item item-rutina">
+            <div>
+                <b><?= $rutina->tren ?></b> | <?=$rutina->musculo?> | <?=$rutina->ejercicio?> | <?=$rutina->repeticiones?> x <?=$rutina->series?>
+            </div>
+            <div class="actions">
+                <a href="eliminar/<?= $rutina->rutina_id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+            </div>
+        </li>
+    <?php endforeach ?>
+</ul>
+
+<p class="mt-3"><small>Mostrando <?=$count?> rutinas</small></p>
+
+<?php require './templates/footer.phtml'?>

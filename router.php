@@ -3,6 +3,7 @@
 require_once './app/controller/main.controller.php';
 require_once './app/controller/rutina.controller.php';
 require_once './app/controller/login.controller.php';
+require_once './app/controller/admin.controller.php';
 
 define('BASE_URL','//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
 
@@ -45,6 +46,16 @@ switch ($params[0]){
     case 'desloguear':
         $controller = new LoginController();
         $controller->desloguear();
+        break;
+    case 'admin':
+        LoginHelper::verify();
+        $controller = new AdminController();
+        $controller->mostrarAdmin();
+        break;
+    case 'eliminarAdmin':
+        LoginHelper::verify();
+        $controller = new AdminController();
+        $controller->eliminarRutina($params[1]);
         break;
     default:
         echo"404 Page Not Found";

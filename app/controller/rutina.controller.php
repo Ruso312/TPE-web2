@@ -25,9 +25,9 @@ class RutinasController{
         $ejercicio = $_POST['ejercicio'];
         $repeticiones = $_POST['repeticiones'];
         $series = $_POST['series'];
-        $cliente_id = $_SESSION['CLIENTE_ID'];
+        $cliente_id=$_SESSION['CLIENTE_ID'];
 
-        if(empty($tren)||empty($musculo)){
+        if(empty($tren)||empty($musculo)||empty($ejercicio)||empty($repeticiones)||empty($series)){
             $this->view->mostrarError("Se deben completar todos los campos");
             return;
         }

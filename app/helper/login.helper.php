@@ -10,9 +10,8 @@ class LoginHelper {
 
     public static function login($cliente) {
         LoginHelper::init();
-        $_SESSION['CLIENTE_ID'] = $cliente->cliente_id;
+        $_SESSION['CLIENTE_ID'] = $cliente->id;
         $_SESSION['CLIENTE_EMAIL'] = $cliente->email;
-        echo "Sesion iniciada";
     }
 
     public static function logout() {

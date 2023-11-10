@@ -1,14 +1,14 @@
 <?php require './templates/header.phtml'?>
-<?php require './templates/form.phtml'?>
+<?php require './templates/form.admin.phtml'?>
 
 <ul class="list-group">
     <?php foreach($rutinas as $rutina): ?>
         <li class="list-group-item item-rutina mt-3">
             <div>
-                <b><?= $rutina->tren ?></b> | <?=$rutina->musculo?> | <?=$rutina->ejercicio?> | <?=$rutina->repeticiones?> x <?=$rutina->series?>
+                <b><?=$rutina->cliente_id ?></b> | <?= $rutina->tren ?> | <?=$rutina->musculo?> | <?=$rutina->ejercicio?> | <?=$rutina->repeticiones?> x <?=$rutina->series?>
             </div>
             <div class="actions">
-                <a href="eliminar/<?= $rutina->rutina_id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+                <a href="eliminarAdmin/<?= $rutina->rutina_id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
             </div>
         </li>
     <?php endforeach ?>

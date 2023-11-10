@@ -27,6 +27,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="login">Login</a>
                             </li>
+                        <?php elseif ($_SESSION['CLIENTE_ID']==1) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="admin">Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="desloguear">Logout</a>
+                            </li>
                         <?php else : ?>
                                 <li class="nav-item">
                                     <a class="nav-link" aria-current="page" href="desloguear">Logout</a>

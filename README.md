@@ -16,5 +16,5 @@ Este proyecto simula una aplicacion de escritorio/web en la cual un usuario que 
 
 
 Enlace a imagen de DER.
-![image](https://github.com/Ruso312/TPE-web2/assets/109224679/7436c805-303a-4c76-b6db-7f2c21b63e0a)
+![image](![](image.png))
 

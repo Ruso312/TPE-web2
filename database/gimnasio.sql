@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2023 a las 19:25:21
+-- Tiempo de generación: 13-11-2023 a las 14:59:29
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -39,7 +39,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `email`, `contraseña`, `rutina_id`) VALUES
-(4, 'patri@gmail.com', '$2y$10$MQZpzyBx.urQsZADDJlvZ.tpE9QBMduOmd3gp.4AGlTGxE5x8rVeG', 3);
+(1, 'webadmin@gmail.com', '$2y$10$vHCIg03NTuVSWOIMnVirmuFs875ykCRRPnhazRjN5Hxf6lRbtXhcq', NULL),
+(7, 'cliente@gmail.com', '$2y$10$3cajC6c36YVX2G7RT327mOb.vLv3WP3Q8DEDoHz2xaw5Z2HlFwNNm', NULL),
+(8, 'cliente2@gmail.com', '$2y$10$8XoJp.MlRGhoyJ/W551ZMuu0Kmx1BVpqbgU0NssFSX6ASbXVXKpLy', NULL);
 
 -- --------------------------------------------------------
 
@@ -53,15 +55,18 @@ CREATE TABLE `rutina` (
   `musculo` varchar(45) NOT NULL,
   `ejercicio` varchar(45) NOT NULL,
   `repeticiones` int(15) NOT NULL,
-  `series` int(15) NOT NULL
+  `series` int(15) NOT NULL,
+  `cliente_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rutina`
 --
 
-INSERT INTO `rutina` (`rutina_id`, `tren`, `musculo`, `ejercicio`, `repetciones`, `series`) VALUES
-(3, 'Superior', 'Bicep', 'a', 0, 0);
+INSERT INTO `rutina` (`rutina_id`, `tren`, `musculo`, `ejercicio`, `repeticiones`, `series`, `cliente_id`) VALUES
+(20, 'Inferior', 'Cuadriceps', 'Sentadillas', 2, 4, 8),
+(21, 'Superior', 'Tricep', 'Polea inversa', 8, 3, 7),
+(22, 'Superior', 'Hombros', 'Press militar', 4, 3, 7);
 
 --
 -- Índices para tablas volcadas
@@ -88,13 +93,13 @@ ALTER TABLE `rutina`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `rutina`
 --
 ALTER TABLE `rutina`
-  MODIFY `rutina_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rutina_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Restricciones para tablas volcadas
@@ -104,7 +109,7 @@ ALTER TABLE `rutina`
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `rutina_id` FOREIGN KEY (`rutina_id`) REFERENCES `rutina` (`rutina_id`);
+  ADD CONSTRAINT `rutina_id` FOREIGN KEY (`rutina_id`) REFERENCES `rutina` (`rutina_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

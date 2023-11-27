@@ -52,11 +52,6 @@ switch ($params[0]){
         $controller = new AdminController();
         $controller->mostrarAdmin();
         break;
-    case 'eliminarAdmin':
-        LoginHelper::verify();
-        $controller = new AdminController();
-        $controller->eliminarRutina($params[1]);
-        break;
     default:
         echo"404 Page Not Found";
         break;

@@ -27,15 +27,19 @@ class LoginController{
         }
 
         $cliente = $this->model->checkEmail($email);
-        if($email == "webadmin@gmail.com"){
-            LoginHelper::login($cliente);
 
-            header('Location: ' . BASE_URL . 'main');
+        if(empty($cliente)){
+            $this->view->mostrarLogin("No existe un usuario con ese email");
+            return;
+        }
+
+        if($cliente->rol = 'admin'){
+            LoginHelper::login($cliente);
+            header('Location: ' . BASE_URL . 'admin');
         }
         
-        else if($cliente && password_verify($password, $cliente->contraseña)){
+        if($cliente && password_verify($password, $cliente->contraseña)){
             LoginHelper::login($cliente);
-
             header('Location: ' . BASE_URL . 'main');
         }
 

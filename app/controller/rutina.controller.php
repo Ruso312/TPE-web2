@@ -34,7 +34,7 @@ class RutinasController{
 
         $id = $this->model->cargarRutina($tren,$musculo,$ejercicio,$repeticiones,$series,$cliente_id);
         if($id){
-            header('Location: ' . BASE_URL . '/rutinas');
+            header('Location: ' . BASE_URL . 'rutinas');
         }
         else{
             $this->view->mostrarError("No se pudo cargar la rutina");
@@ -43,6 +43,11 @@ class RutinasController{
 
     function eliminarRutina($id){
         $this->model->eliminarRutina($id);
-        header('Location: ' .BASE_URL . '/rutinas');
+        if($_SESSION['CLIENTE_ID']=1){
+            header('Location: '.BASE_URL. 'admin');
+        }
+        elseif($_SESSION['CLIENTE_ID']!=1){
+            header('Location: '.BASE_URL. 'rutinas');
+        }
     }
 }
